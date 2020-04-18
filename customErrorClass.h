@@ -6,7 +6,8 @@
 
 using namespace std;
 
-typedef enum CODES{
+typedef enum CODES
+{
     INFORMATIONAL,
     WARNING,
     ERROR,
@@ -25,10 +26,12 @@ class myException : public exception {
         myException(void);
         myException(const char*, e_CODES=INFORMATIONAL);
         myException(const string&, e_CODES=INFORMATIONAL);
-        const string what(){
+        const string what()
+        {
             return this->p_RetrieveError();
         }
-        const e_CODES retrieveCode(){
+        const e_CODES retrieveCode()
+        {
             return this->p_RetrieveCode();
         }
         const e_CODES increaseError();
@@ -37,7 +40,8 @@ class myException : public exception {
         e_CODES p_ErrCode;
 
         string p_RetrieveError(void);
-        e_CODES p_RetrieveCode(void){
+        e_CODES p_RetrieveCode(void)
+        {
             return this->p_ErrCode;
         }
 
