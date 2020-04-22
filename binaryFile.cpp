@@ -42,6 +42,7 @@ bool binaryFile::_ReadData(int size)
     }
 
     if (!input_file.is_open()) { throw myException("File Not Open", ERROR); }
+    if (!output_binary) { throw myException("Can not open Binary File", ERROR); }
     
     int i = 1;
     while (getline(input_file, file_value))
@@ -53,16 +54,10 @@ bool binaryFile::_ReadData(int size)
        employee_id = stoi(temp_string);
        getline(ss, name, ',');
         
-        if (i < 20) { cout << "read: Name: " << name << " -- department: " << department << " -- Employee Id: " << employee_id << endl; }
-        i++;
-    }
-   
-    if (!output_binary)
-    {
-        throw myException("Can not open Binary File", ERROR);
-    }
+        new_Employee = new Employee(employee_id, department, name);
 
-    output_binary.write((char*)new_Employee, sizeof(Employee));
+        output_binary.write((char*)new_Employee, sizeof(Employee));
+    }
 
     cout << endl << endl;
 
