@@ -18,6 +18,7 @@ bool binaryFile::_ReadData(int size)
     ofstream output_binary("employee_info.dat", ios::out | ios::binary);
     int inputCount, department, employee_id;
     string file_value, name, temp_string;
+    Employee *new_Employee = NULL;
 
     if (size < 1 || size > 3)
     {
@@ -60,10 +61,12 @@ bool binaryFile::_ReadData(int size)
     {
         throw myException("Can not open Binary File", ERROR);
     }
-    
+
+    output_binary.write((char*)new_Employee, sizeof(Employee));
 
     cout << endl << endl;
 
+    output_binary.close();
     input_file.close();
 
     return false;

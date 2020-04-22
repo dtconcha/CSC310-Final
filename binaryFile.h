@@ -13,7 +13,7 @@ class binaryFile
 private:
     bool _ReadData(int size);
 public:
-    binaryFile(/* args */);
+    binaryFile();
     ~binaryFile();
     bool ReadData(int size);
 };
@@ -24,15 +24,13 @@ private:
     int _ID;
     int _Department;
     string _Name;
+
+    void _Update(int ID, int department, string name);
 public:
+    Employee();
     Employee(int ID, int department, string name);
     ~Employee();
+    void Update(int ID, int department, string name);
 };
-
-
-
-
-
-
 
 #endif
