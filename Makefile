@@ -2,12 +2,15 @@ INCLUDE_DIRS := /home/ale/CSC310-Final
 CC 			 := g++
 CFLAGS 		 := -I$(INCLUDE_DIRS)
 
-OBJECTS 	 := customErrorClass.o
+OBJECTS 	 := customErrorClass.o binaryFile.o
 
 excBinaryFile: main.cpp $(OBJECTS)
 	$(CC) -o $@ $^ $(CFLAGS)
 
 customErrorClass.o: customErrorClass.cpp
+	$(CC) -c -o $@ $< $(CFLAGS)
+
+binaryFile.o: binaryFile.cpp
 	$(CC) -c -o $@ $< $(CFLAGS)
 
 clean:
