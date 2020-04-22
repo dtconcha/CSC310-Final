@@ -15,6 +15,7 @@ binaryFile::~binaryFile()
 bool binaryFile::_ReadData(int size)
 {
     ifstream input_file;
+    ofstream output_binary("employee_info.dat", ios::out | ios::binary);
     int inputCount, department, employee_id;
     string file_value, name, temp_string;
 
@@ -55,6 +56,11 @@ bool binaryFile::_ReadData(int size)
         i++;
     }
    
+    if (!output_binary)
+    {
+        throw myException("Can not open Binary File", ERROR);
+    }
+    
 
     cout << endl << endl;
 
