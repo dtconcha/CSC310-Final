@@ -8,6 +8,8 @@
 
 using namespace std;
 
+
+
 class binaryFile
 {
 private:
@@ -26,11 +28,16 @@ private:
     string _Name;
 
     void _Update(int ID, int department, string name);
+    void _Search(int ID, int department, string name);
+    void _Sort(int ID, int department);
+
 public:
     Employee();
     Employee(int ID, int department, string name);
     ~Employee();
     void Update(int ID, int department, string name);
+    void Search(int ID, int department, string name);
+    void Sort(int ID, int department);
 };
 
 #endif
