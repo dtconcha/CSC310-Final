@@ -8,7 +8,11 @@
 
 using namespace std;
 
-
+typedef struct NODE{
+    NODE *current;
+    NODE *next;
+    //NODE *previous;
+}e_NODE;
 
 class binaryFile
 {
