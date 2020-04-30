@@ -9,6 +9,7 @@
 using namespace std;
 
 typedef struct NODE{
+    int value, secondValue;
     NODE *current;
     NODE *next;
     //NODE *previous;
@@ -30,6 +31,7 @@ private:
     int _ID;
     int _Department;
     string _Name;
+    e_NODE *first;
 
     void _Update(int ID, int department, string name);
     void _Search(int ID, int department, string name);
@@ -39,6 +41,8 @@ public:
     Employee();
     Employee(int ID, int department, string name);
     ~Employee();
+
+    e_NODE *getCurrent();
     void Update(int ID, int department, string name);
     void Search(int ID, int department, string name);
     void Sort(int ID, int department);

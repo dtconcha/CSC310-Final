@@ -17,6 +17,10 @@ Employee::Employee()
 {
 }
 
+e_NODE* Employee::getCurrent(){
+    return this->current;
+}
+
 void Employee::Update(int ID, int department, string name)
 {
     _Update(ID, department, name);
@@ -45,22 +49,88 @@ void Employee::_Update(int ID, int department, string name)
 void Employee::_Sort(int ID, int department){
 
     binaryFile inputFile;
-    int temp;
+    e_NODE *node = new NODE;
+    node->value = department;
+    node->secondValue = ID;
+
+    e_NODE *tmp = this->first;
+
+    //int tmp;
+    //node->value = node->current;
 
     for(int i = 0; i <= inputFile.ReadData.length; i++){
 
-        if(department + 1 > department){
-            temp = department;
-            department = department + 1;
-            department + 1 = temp;
+        if(node->value > node->next->value){
+            tmp = node->current;
+            node->current = node->next;
+            node->next = tmp;
+        }
+    }
+
+
+    while(department = 0){
+
+        for(int i = 0; inputFile.ReadData.length; i++){
+
+            if(node->secondValue > node->next->secondValue){
+            tmp = node->current;
+            node->current = node->next;
+            node->next = tmp;
+            }
+        }
+
+    }
+    while(department = 1){
+
+        for(int i = 0; inputFile.ReadData.length; i++){
+            
+            if(node->secondValue > node->next->secondValue){
+            tmp = node->current;
+            node->current = node->next;
+            node->next = tmp;
+            }
+        }
+
+    }
+    while(department = 2){
+
+        for(int i = 0; inputFile.ReadData.length; i++){
+            
+            if(node->secondValue > node->next->secondValue){
+            tmp = node->current;
+            node->current = node->next;
+            node->next = tmp;
+            }
         }
 
     }
 
+    while(department = 3){
 
-    if(department > 0){
+        for(int i = 0; inputFile.ReadData.length; i++){
+            
+            if(node->secondValue > node->next->secondValue){
+            tmp = node->current;
+            node->current = node->next;
+            node->next = tmp;
+            }
+        }
 
     }
+
+    while(department = 4){
+
+        for(int i = 0; inputFile.ReadData.length; i++){
+            
+            if(node->secondValue > node->next->secondValue){
+            tmp = node->current;
+            node->current = node->next;
+            node->next = tmp;
+            }
+        }
+
+    }
+
 
 }
 
