@@ -3,6 +3,7 @@
 
 #include "customErrorClass.h"
 #include <iostream>
+#include <typeinfo>
 #include <fstream>
 #include <sstream>
 
@@ -31,10 +32,10 @@ private:
     int _ID;
     int _Department;
     string _Name;
-    e_NODE *first;
+    e_NODE *_first;
 
     void _Update(int ID, int department, string name);
-    void _Search(int ID, int department, string name);
+    int _Search(int ID, int department);
     void _Sort(int ID, int department);
 
 public:
@@ -44,7 +45,7 @@ public:
 
     e_NODE *getCurrent();
     void Update(int ID, int department, string name);
-    void Search(int ID, int department, string name);
+    bool Search(int ID, int department);
     void Sort(int ID, int department);
 };
 

@@ -18,7 +18,7 @@ Employee::Employee()
 }
 
 e_NODE* Employee::getCurrent(){
-    return this->current;
+    return this->_first;
 }
 
 void Employee::Update(int ID, int department, string name)
@@ -31,9 +31,16 @@ void Employee::Sort(int ID, int department){
     _Sort(ID, department);
 }
 
-void Employee::Search(int ID, int department, string name){
+bool Employee::Search(int ID, int department){
 
-    _Search(ID, department, name);
+    int found;
+    _Search(ID, department);
+
+    if(found == -1){
+        return false;
+    }else{
+        return true;
+    }
 }
 
 
@@ -53,24 +60,42 @@ void Employee::_Sort(int ID, int department){
     node->value = department;
     node->secondValue = ID;
 
-    e_NODE *tmp = this->first;
+    e_NODE *tmp;
+    e_NODE *search = _first;
 
-    //int tmp;
-    //node->value = node->current;
 
-    for(int i = 0; i <= inputFile.ReadData.length; i++){
+    while(search->next->next != NULL){
+
+        if(node->secondValue > node->next->secondValue){
+            tmp = node->current;
+            node->current = node->next;
+            node->next = tmp;
+        }
+        search = search->next;
+    }
+
+    search = _first;
+
+    while(search->next->next != NULL){
 
         if(node->value > node->next->value){
             tmp = node->current;
             node->current = node->next;
             node->next = tmp;
         }
+        search = search->next;
+    }
+
+    search = _first;
+
+    while(search->next->next != NULL){
+        cout<<node->value<<", "<<node->secondValue<<endl;
     }
 
 
-    while(department = 0){
+    /*while(department = 0){
 
-        for(int i = 0; inputFile.ReadData.length; i++){
+        for(int i = 0; (inputFile.ReadData).length; i++){
 
             if(node->secondValue > node->next->secondValue){
             tmp = node->current;
@@ -82,7 +107,7 @@ void Employee::_Sort(int ID, int department){
     }
     while(department = 1){
 
-        for(int i = 0; inputFile.ReadData.length; i++){
+        for(int i = 0; (inputFile.ReadData).length; i++){
             
             if(node->secondValue > node->next->secondValue){
             tmp = node->current;
@@ -94,7 +119,7 @@ void Employee::_Sort(int ID, int department){
     }
     while(department = 2){
 
-        for(int i = 0; inputFile.ReadData.length; i++){
+        for(int i = 0; (inputFile.ReadData).length; i++){
             
             if(node->secondValue > node->next->secondValue){
             tmp = node->current;
@@ -107,7 +132,7 @@ void Employee::_Sort(int ID, int department){
 
     while(department = 3){
 
-        for(int i = 0; inputFile.ReadData.length; i++){
+        for(int i = 0; (inputFile.ReadData).length; i++){
             
             if(node->secondValue > node->next->secondValue){
             tmp = node->current;
@@ -120,7 +145,7 @@ void Employee::_Sort(int ID, int department){
 
     while(department = 4){
 
-        for(int i = 0; inputFile.ReadData.length; i++){
+        for(int i = 0; (inputFile.ReadData).length; i++){
             
             if(node->secondValue > node->next->secondValue){
             tmp = node->current;
@@ -129,12 +154,25 @@ void Employee::_Sort(int ID, int department){
             }
         }
 
-    }
+    }*/
 
 
 }
 
-void Employee::_Search(int ID, int department, string name){
+int Employee::_Search(int ID, int department){
+
+    e_NODE *search;
+    int count = 0;
+    search = _first;
+
+    while(search != NULL){
+        if(search->value == department && search->secondValue == ID){
+            return count;
+        }
+        search = search->next;
+        count++;
+    }
+    return -1;
 
 }
 
