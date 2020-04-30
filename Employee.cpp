@@ -67,9 +67,9 @@ void Employee::_Sort(int ID, int department){
     while(search->next->next != NULL){
 
         if(node->secondValue > node->next->secondValue){
-            tmp = node->current;
-            node->current = node->next;
-            node->next = tmp;
+            tmp->secondValue = node->current->secondValue;
+            node->current->secondValue = node->next->secondValue;
+            node->next->secondValue = tmp->secondValue;
         }
         search = search->next;
     }
@@ -79,9 +79,9 @@ void Employee::_Sort(int ID, int department){
     while(search->next->next != NULL){
 
         if(node->value > node->next->value){
-            tmp = node->current;
-            node->current = node->next;
-            node->next = tmp;
+            tmp->value = node->current->value;
+            node->current->value = node->next->value;
+            node->next->value = tmp->value;
         }
         search = search->next;
     }
