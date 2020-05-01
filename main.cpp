@@ -18,13 +18,21 @@ int main()
 
     binaryFile inputFile;
     Employee sort;
+    int ID, department;
 
     // inputFile.ReadData(0);
     inputFile.ReadData(1);
     // inputFile.ReadData(2);
     // inputFile.ReadData(3);
+<<<<<<< Updated upstream
+=======
+    cout<<"starting sort"<<endl;
+    //sort.RetrieveEmployee(20,4);
 
-    //sort.Sort()
+    sort.Sort(ID, department);
+
+>>>>>>> Stashed changes
+
 
 
     return 0;

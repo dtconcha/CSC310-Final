@@ -63,33 +63,46 @@ void Employee::_Sort(int ID, int department){
     e_NODE *tmp;
     e_NODE *search = _first;
 
+    cout<<"first sort"<<endl;
 
-    while(search->next->next != NULL){
+    while(search != NULL){
 
         if(node->secondValue > node->next->secondValue){
             tmp->secondValue = node->current->secondValue;
             node->current->secondValue = node->next->secondValue;
             node->next->secondValue = tmp->secondValue;
         }
-        search = search->next;
+
+        if(search->next !=NULL){
+            search = search->next;
+        }
     }
 
+    cout<<"start at top"<<endl;
     search = _first;
+    cout<<"start second sort"<<endl;
 
-    while(search->next->next != NULL){
+    while(search != NULL){
 
         if(node->value > node->next->value){
             tmp->value = node->current->value;
             node->current->value = node->next->value;
             node->next->value = tmp->value;
         }
-        search = search->next;
+        if(search->next !=NULL){
+            search = search->next;
+        }
     }
-
+    cout<<"restart at top"<<endl;
     search = _first;
 
-    while(search->next->next != NULL){
+    cout<<"print"<<endl;
+    while(search != NULL){
         cout<<node->value<<", "<<node->secondValue<<endl;
+        if(search->next !=NULL){
+            search = search->next;
+        }
+
     }
 
 
